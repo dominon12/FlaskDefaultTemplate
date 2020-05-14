@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>All profiles</h1> <br>
+    <hr>
+    {% if users %}
+        {% for user in users %}
+            {% include 'accounts/_profile.html' %}
+            <hr>
+        {% endfor %}
+    {% else %}
+            No users yet. <br>
+    {% endif %}
+
+{% include 'main/pagination.html' %}
+
+{% endblock %}

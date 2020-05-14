@@ -1,0 +1,41 @@
+    <big>Username: <a class="text-secondary" href="{{ url_for('accounts.user', username=user.username) }}">{{ user.username }}</a></big> <br>
+
+    {% if user.is_online() %}
+        <div class="text-primary">Online</div>
+    {% else %}
+        <small>Last seen: {{ moment(user.last_seen).fromNow() }}</small> <br><br>
+    {% endif %}
+
+    <img src="{{ user.avatar(128) }}" alt="user.username"> <br> <br>
+
+    E-mail: {{ user.email }} <br><br>
+
+    {% if user.first_name %}
+        First name: {{ user.first_name }} <br>
+    {% else %}
+        {% if user == current_user %}
+            [You can add your first name by clicking the "Edit" button]
+        {% else %}
+            {{ user.username }} didn't add his first name yet.
+        {% endif %}
+    {% endif %} <br>
+
+    {% if user.last_name %}
+        First name: {{ user.last_name }} <br>
+    {% else %}
+        {% if user == current_user %}
+            [You can add your last name by clicking the "Edit" button]
+        {% else %}
+            {{ user.username }} didn't add his last name yet.
+        {% endif %}
+    {% endif %} <br>
+
+    {% if user.about_me %}
+        About me: {{ user.about_me }} <br>
+    {% else %}
+        {% if user == current_user %}
+            [You can add your "about me" by clicking the "Edit" button]
+        {% else %}
+            {{ user.username }} didn't add "about me" yet.
+        {% endif %}
+    {% endif %} <br>
