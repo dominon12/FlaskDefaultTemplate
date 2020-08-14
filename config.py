@@ -15,5 +15,5 @@ class Config(object):
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS')
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    ADMINS = ['youneedmax@gmail.com']
+    ADMINS = ['']
     OBJECTS_PER_PAGE = int(os.environ.get('OBJECTS_PER_PAGE'))
